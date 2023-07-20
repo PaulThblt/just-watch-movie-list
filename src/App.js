@@ -2,7 +2,7 @@ import './App.css';
 
 import { useState, useEffect } from 'react';
 import MovieList from './components/MovieList';
-// import MovieReviewsModal from './components/MovieReviewsModal';
+import BookmarkedMovies from './components/BookmarkedMovies';
 import API_KEY from './config';
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
             isBookmarked: false,
           };
         });
+        console.log(moviesWithBookmarks);
         setMovies(moviesWithBookmarks);
       } catch (error) {
         console.error(error);
@@ -34,21 +35,11 @@ function App() {
     fetchMovies();
   }, []);
 
-  // const handleBookmark = (movieId) => {
-  //   setMovies((prevMovies) =>
-  //     prevMovies.map((movie) => {
-  //       if (movie.id === movieId) {
-  //         return { ...movie, bookmarked: !movie.bookmarked };
-  //       }
-  //       return movie;
-  //     })
-  //   );
-  // };
-
   return (
     <div className="App">
       <h1 className='title'>Now Playing</h1>
       <MovieList movies={movies}/>
+      <BookmarkedMovies movies={movies.filter(movie => movie.isBookmarked)}/>
     </div>
   );
 }

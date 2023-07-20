@@ -1,5 +1,7 @@
 import { React, useState } from "react";
-import API_KEY from "../config";
+
+import "./MovieCard.css";
+import MovieReviewsModal from "./MovieReviewsModal";
 
 function MovieCard({movie}) {
     const imageUrl = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
@@ -11,27 +13,18 @@ function MovieCard({movie}) {
         // onBookmark(movie.id);
     }
 
-    const handlePosterClick = async () => {
-        try {
-            const response = await fetch(
-                ` https://api.themoviedb.org/3/movie//reviews?api_key=${API_KEY}&language=en-US`
-            )
-            if (!response.ok) {
-                throw new Error ('The reviews could not be fetched');
-            }
+    const handlePosterClick = () => {
+        setShowReviews(true);
+    };
 
-            const data = await response.json();
-            console.log(data);
-            setShowReviews(true);
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    const handleCloseModal = () => {
+        setShowReviews(false);
+    };
 
     return (
         <div className='movie-card'>
-            <img src={imageUrl} alt={movie.title} onClick={handlePosterClick}/>
-            <h3>{movie.title}</h3>
+            <img src={imageUrl} alt={movie.title}/>
+            <h3 className='movie-title' onClick={handlePosterClick}>{movie.title}</h3>
             <span
                 className={`bookmark-icon ${isBookmarked ? "active" : ""}`}
                 onClick={() => handleBookmarkClick()}
@@ -41,6 +34,8 @@ function MovieCard({movie}) {
                 <p className='movie-rating'>Rating: {movie.vote_average}</p>
                 <p className='movie-overview'>{movie.overview}</p>
             </div>
+
+            {showReviews && <MovieReviewsModal movie={movie} onClose={handleCloseModal}/>}
         </div>
     );
 }
