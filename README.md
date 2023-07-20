@@ -3,6 +3,8 @@ Movie List Technical Task for Just Watch
 by Paul THIEBAULT
 paul.thiebault@epitech.eu
 
+I used React for this small project as it is a technology I am familiar with, it also allowed me to return elements using the JSX syntax that came in handy for all the components.
+
 -> Start by running `create-react-app`
 
 -> Fetch all the movies using the `fetch` command to the API using the `API_KEY`
@@ -11,7 +13,7 @@ paul.thiebault@epitech.eu
 
 -> Add a clickable bookmark icon and add every bookmarked movie to the bookmark list
 
--> Add a modal to display the fetched reviews on Title click
+-> Add a modal to display the fetched reviews on Title click (I could not make the `get reviews` query work)
 
 -> Polish with CSS
 
