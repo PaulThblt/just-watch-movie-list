@@ -3,14 +3,12 @@ import { React, useState } from "react";
 import "./MovieCard.css";
 import MovieReviewsModal from "./MovieReviewsModal";
 
-function MovieCard({movie}) {
+function MovieCard({movie, onBookmark}) {
     const imageUrl = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
-    const [isBookmarked, setBookmarked] = useState(false);
     const [showReviews, setShowReviews] = useState(false);
 
     const handleBookmarkClick = () => {
-        setBookmarked(!isBookmarked);
-        // onBookmark(movie.id);
+        onBookmark(movie.id, !movie.isBookmarked);
     }
 
     const handlePosterClick = () => {
@@ -26,7 +24,7 @@ function MovieCard({movie}) {
             <img src={imageUrl} alt={movie.title}/>
             <h3 className='movie-title' onClick={handlePosterClick}>{movie.title}</h3>
             <span
-                className={`bookmark-icon ${isBookmarked ? "active" : ""}`}
+                className={`bookmark-icon ${movie.isBookmarked ? "active" : ""}`}
                 onClick={() => handleBookmarkClick()}
             ></span>
             <div className='movie-details'>

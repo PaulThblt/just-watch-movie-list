@@ -35,10 +35,21 @@ function App() {
     fetchMovies();
   }, []);
 
+  const handleBookmark = (movieId, isBookmarked) => {
+    setMovies((prevMovies) =>
+      prevMovies.map((movie) => {
+        if (movie.id === movieId) {
+          return { ...movie, isBookmarked };
+        }
+        return movie;
+      })
+    );
+  };
+
   return (
     <div className="App">
       <h1 className='title'>Now Playing</h1>
-      <MovieList movies={movies}/>
+      <MovieList movies={movies} handleBookmark={handleBookmark}/>
       <BookmarkedMovies movies={movies.filter(movie => movie.isBookmarked)}/>
     </div>
   );
