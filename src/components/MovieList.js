@@ -1,5 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import API_KEY from '../config';
+import './MovieList.css';
+
+function MovieCard({movie}) {
+    const imageUrl = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
+
+    return (
+        <div className='movie-card'>
+            <img src={imageUrl} alt={movie.title} />
+            <h3>{movie.title}</h3>
+        </div>
+    );
+}
 
 function MovieList() {
     const [movies, setMovies] = useState([]);
@@ -26,13 +38,10 @@ function MovieList() {
     }, []);
 
     return (
-        <div>
-            <h1>Movie List</h1>
-            <ul>
-                {movies.map((movie) => (
-                    <li key={movie.id}>{movie.title}</li>
-                ))}
-            </ul>
+        <div className='movie-list'>
+            {movies.map(movie => (
+                <MovieCard key={movie.id} movie={movie} />
+            ))}
         </div>
     )
 }

@@ -4,7 +4,10 @@ by Paul THIEBAULT
 paul.thiebault@epitech.eu
 
 -> Start by running `create-react-app`
+
 -> Fetch all the movies using the `fetch` command to the API using the `API_KEY`
+
+-> Create a movie card template with HTML and CSS to display title and poster
 
 
 use `npm start` to run at `localhost:3000`
