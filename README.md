@@ -9,6 +9,8 @@ paul.thiebault@epitech.eu
 
 -> Create a movie card template with HTML and CSS to display title and poster
 
+-> Add a clickable bookmark icon and add every bookmarked movie to the bookmark list
+
 
 use `npm start` to run at `localhost:3000`
 
