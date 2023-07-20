@@ -9,6 +9,11 @@ function MovieCard({movie}) {
         <div className='movie-card'>
             <img src={imageUrl} alt={movie.title} />
             <h3>{movie.title}</h3>
+            <div className='movie-details'>
+                <p className='movie-release-date'>Release date: {movie.release_date}</p>
+                <p className='movie-rating'>Rating: {movie.vote_average}</p>
+                <p className='movie-overview'>{movie.overview}</p>
+            </div>
         </div>
     );
 }

@@ -1,29 +1,70 @@
 .movie-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
 }
 
 .movie-card {
-    width: 300px;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #dad0d0;
-    background-color: aliceblue;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #ccc;
+    position: relative;
+    width: 200px;
+    height: 400px;
 }
 
 .movie-card img {
     width: 100%;
-    height: 400px;
-    object-fit: cover;
+    height: auto;
+    border-radius: 5px;
 }
 
-.movie-card h3 {
-    margin: 10px 0 5px 0;
-    padding: 0;
-    font-size: 1.2rem;
+.movie-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    background-color: rgba(37, 36, 36, 0.8);
+    border-radius: 5px;
+    padding: 10px;
+    color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.movie-card:hover .movie-details {
+    opacity: 1;
+    visibility: visible;
+}
+
+.movie-details h3 {
+    margin: 0;
+    font-size: 16px;
     font-weight: 600;
-    color: #333;
+    margin-bottom: 5px;
+}
+
+.movie-details p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.movie-release-date {
+    padding: 5px 0px;
+    border-bottom: 2px dashed #fff;
+}
+
+.movie-rating {
+    padding: 5px 0px;
+    border-bottom: 3px dotted #fff;
+}
+
+.movie-overview {
+    padding: 5px 0px;
+    text-align: center;
+    overflow: hidden;
 }
