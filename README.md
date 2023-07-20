@@ -13,6 +13,8 @@ paul.thiebault@epitech.eu
 
 -> Add a modal to display the fetched reviews on Title click
 
+-> Polish with CSS
+
 
 use `npm start` to run at `localhost:3000`
 
