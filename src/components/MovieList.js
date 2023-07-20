@@ -4,11 +4,20 @@ import './MovieList.css';
 
 function MovieCard({movie}) {
     const imageUrl = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
+    const [isBookmarked, setBookmarked] = useState(false);
+
+    const handleBookmarkClick = (movieId) => {
+        setBookmarked(!isBookmarked);
+    }
 
     return (
         <div className='movie-card'>
             <img src={imageUrl} alt={movie.title} />
             <h3>{movie.title}</h3>
+            <span
+                className={`bookmark-icon ${isBookmarked ? "active" : ""}`}
+                onClick={() => handleBookmarkClick(movie.id)}
+            ></span>
             <div className='movie-details'>
                 <p className='movie-release-date'>Release date: {movie.release_date}</p>
                 <p className='movie-rating'>Rating: {movie.vote_average}</p>

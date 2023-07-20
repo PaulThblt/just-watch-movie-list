@@ -68,3 +68,19 @@
     text-align: center;
     overflow: hidden;
 }
+
+.bookmark-icon {
+    position: absolute;
+    right: 90px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 2px solid #2b2a2a;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.bookmark-icon.active {
+    background-color: yellow;
+    border-color: yellow;
+}
